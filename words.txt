@@ -4,6 +4,11 @@ cat
 dog
 purple
 flower
+dog
 flower
 sunset
 sunset
+dog
+sunny
+blue
+red

@@ -11,7 +11,7 @@ def histogram(source_text):
         else:
             word_histogram[word] = 1
 
-    print(word_histogram)
+    return(word_histogram)
 
 def unique_words(histogram):
     unique_words = 0
@@ -21,12 +21,14 @@ def unique_words(histogram):
         else:
             pass
 
-    print(unique_words)
-
-    pass
+    return(unique_words)
 
 def frequency(word, histogram):
-    pass
+    if word in word_histogram:
+        return(word_histogram[word])
+    else:
+        pass
 
-histogram("words.txt")
-unique_words(word_histogram)
+print(histogram("words.txt"))
+print(unique_words(word_histogram))
+print(frequency("sunset",word_histogram))
