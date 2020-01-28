@@ -1,4 +1,9 @@
-dog
 cat
-lion
-bear
+cat
+cat
+dog
+purple
+flower
+flower
+sunset
+sunset
