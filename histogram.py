@@ -1,6 +1,5 @@
-word_histogram = {}
-
 def histogram(source_text):
+    word_histogram = {}
     filehandle = open(source_text, "r")
     lines = filehandle.readlines()
 
@@ -21,11 +20,12 @@ def unique_words(histogram):
         else:
             pass
 
-    return(unique_words)
+    return("Number of unique words: " + str(unique_words))
 
 def frequency(word, histogram):
     if word in word_histogram:
-        return(word_histogram[word])
+        return("The word " + word + " appears " + str(word_histogram[word]) + " times")
+        return()
     else:
         pass
 
