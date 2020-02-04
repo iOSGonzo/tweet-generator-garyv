@@ -30,9 +30,6 @@ def frequency(word, histogram):
         else:
             pass
 
-def get_index(word, word_histogram_list):
-    current_index = 0
-    if word in word_histogram_list:
 
 def list_histogram(source_text):
     text = read_words(source_text)
