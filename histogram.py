@@ -1,5 +1,5 @@
+word_histogram = {}
 def histogram(source_text):
-    word_histogram = {}
     filehandle = open(source_text, "r")
     lines = filehandle.readlines()
 
@@ -23,12 +23,51 @@ def unique_words(histogram):
     return("Number of unique words: " + str(unique_words))
 
 def frequency(word, histogram):
-    if word in word_histogram:
-        return("The word " + word + " appears " + str(word_histogram[word]) + " times")
-        return()
-    else:
-        pass
+    for list in histogram:
+        if word in list:
+            return("The word " + word + " appears " + str(word_histogram[word]) + " times")
+            return()
+        else:
+            pass
+
+def get_index(word, word_histogram_list):
+    current_index = 0
+    if word in word_histogram_list:
+
+def list_histogram(source_text):
+    text = read_words(source_text)
+    histogram = []
+    for word in text:
+        is_updated = False
+        for list in histogram:
+            if list[0] == word:
+                list[1] += 1
+                is_updated = True
+        if is_updated == False:
+            histogram.append([word,1])
+    return histogram
+
+
+def histogram_tuple(source_text):
+    text = read_words(source_text)
+    histogram = []
+    amount = 0
+    for word in text:
+        print(histogram)
+        is_updated = False
+        for tuple in histogram:
+            if tuple[0] == word:
+                amount = tuple[1] +1
+                histogram.remove(tuple)
+                histogram.append((word,amount))
+                is_updated = True
+        if is_updated == False:
+            histogram.append((word, 1))
+    return histogram
+
+
 
 print(histogram("words.txt"))
 print(unique_words(word_histogram))
 print(frequency("sunset",word_histogram))
+print(list_histogram("words.txt"))
