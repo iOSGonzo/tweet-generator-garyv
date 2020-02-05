@@ -47,7 +47,7 @@ def list_histogram(source_text):
     return histogram
 
 
-def histogram_tuple(source_text):
+def tuple_histogram(source_text):
     filehandle = open(source_text, "r")
     lines = filehandle.readlines()
 
