@@ -32,9 +32,11 @@ def frequency(word, histogram):
 
 
 def list_histogram(source_text):
-    text = read_words(source_text)
+    filehandle = open(source_text, "r")
+    lines = filehandle.readlines()
+
     histogram = []
-    for word in text:
+    for word in lines:
         is_updated = False
         for list in histogram:
             if list[0] == word:
@@ -46,10 +48,12 @@ def list_histogram(source_text):
 
 
 def histogram_tuple(source_text):
-    text = read_words(source_text)
+    filehandle = open(source_text, "r")
+    lines = filehandle.readlines()
+
     histogram = []
     amount = 0
-    for word in text:
+    for word in lines:
         print(histogram)
         is_updated = False
         for tuple in histogram:
