@@ -1,38 +1,40 @@
 import random
 
 word_histogram = {}
-def histogram(source_text):
-    filehandle = open(source_text, "r")
-    lines = filehandle.readlines()
 
-    for word in lines:
-        word = word.rstrip()
-        if word in word_histogram:
-            word_histogram[word] += 1
-        else:
-            word_histogram[word] = 1
+class Histogram:
+    def histogram(source_text):
+        filehandle = open(source_text, "r")
+        lines = filehandle.readlines()
 
-    return(word_histogram)
+        for word in lines:
+            word = word.rstrip()
+            if word in word_histogram:
+                word_histogram[word] += 1
+            else:
+                word_histogram[word] = 1
 
-
-def unique_words(histogram):
-    unique_words = 0
-    for word in word_histogram:
-        if word_histogram[word] == 1:
-            unique_words += 1
-        else:
-            pass
-
-    return("Number of unique words: " + str(unique_words))
+        return(word_histogram)
 
 
-def frequency(word, histogram):
-    for list in histogram:
-        if word in list:
-            return("The word " + word + " appears " + str(word_histogram[word]) + " times")
-            return()
-        else:
-            pass
+    def unique_words(histogram):
+        unique_words = 0
+        for word in word_histogram:
+            if word_histogram[word] == 1:
+                unique_words += 1
+            else:
+                pass
+
+        return("Number of unique words: " + str(unique_words))
+
+
+    def frequency(word, histogram):
+        for list in histogram:
+            if word in list:
+                return("The word " + word + " appears " + str(word_histogram[word]) + " times")
+                return()
+            else:
+                pass
 
 
 def list_histogram(source_text):
