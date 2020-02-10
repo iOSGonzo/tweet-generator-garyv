@@ -78,7 +78,6 @@ def sample(source_text):
     sample = random.choice(lines)
     return(sample)
 
-
 # print(histogram("words.txt"))
 # print(unique_words(word_histogram))
 # print(frequency("sunset",word_histogram))
