@@ -1,3 +1,5 @@
+import random
+
 word_histogram = {}
 def histogram(source_text):
     filehandle = open(source_text, "r")
@@ -12,6 +14,7 @@ def histogram(source_text):
 
     return(word_histogram)
 
+
 def unique_words(histogram):
     unique_words = 0
     for word in word_histogram:
@@ -21,6 +24,7 @@ def unique_words(histogram):
             pass
 
     return("Number of unique words: " + str(unique_words))
+
 
 def frequency(word, histogram):
     for list in histogram:
@@ -67,8 +71,16 @@ def tuple_histogram(source_text):
     return histogram
 
 
+def sample(source_text):
+    filehandle = open(source_text, "r")
+    lines = filehandle.readlines()
 
-print(histogram("words.txt"))
-print(unique_words(word_histogram))
-print(frequency("sunset",word_histogram))
-print(list_histogram("words.txt"))
+    sample = random.choice(lines)
+    return(sample)
+
+
+# print(histogram("words.txt"))
+# print(unique_words(word_histogram))
+# print(frequency("sunset",word_histogram))
+# print(list_histogram("words.txt")
+print(sample("words.txt"))
