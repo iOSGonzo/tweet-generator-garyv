@@ -1,8 +1,8 @@
 import random
-
-word_histogram = {}
+from random import randint
 
 def histogram(source_text):
+    word_histogram = {}
     filehandle = open(source_text, "r")
     lines = filehandle.readlines()
 
@@ -72,34 +72,31 @@ def tuple_histogram(source_text):
     return histogram
 
 
-def sample(source_text):
-    filehandle = open(source_text, "r")
-    lines = filehandle.readlines()
-
-    sample = random.choice(lines)
-    return(sample)
+# def sample(source_text):
+#     filehandle = open(source_text, "r")
+#     lines = filehandle.readlines()
+#
+#     sample = random.choice(lines)
+#     return(sample)
 
 def sample(histogram):
-
-    count_sum = 0
-    start = 0
-    end = 0
-
-    for word in histogram.keys():
-        count_sum += histogram[word]
-        rand_index = randint(0, count_sum - 1)
+    fence = 0
+    dart = randint(0, sum(histogram.values()) - 1)
 
     for word, count in histogram.items():
-        end = start + count
-
-    if rand_index in range(start+end):
-        return word
-    else:
-        start = end
+        fence += count
+        if fence >= dart:
+            return word
 
 
+
+
+
+hs = histogram("words.txt")
+print(hs)
+print(sample(hs))
 # print(histogram("words.txt"))
 # print(unique_words(word_histogram))
 # print(frequency("sunset",word_histogram))
 # print(list_histogram("words.txt")
-print(sample("words.txt"))
+# print(sample("words.txt"))
