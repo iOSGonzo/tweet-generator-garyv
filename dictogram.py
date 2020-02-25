@@ -1,6 +1,8 @@
+from __future__ import division, print_function
 from random import randint
 
-class Dictogram:
+class EasyDictogram(dict):
+    """Dictogram is a histogram implemented as a subclass of the dict type."""
 
     def __init__(self, word_list):
         '''Initializes the dictogram properties'''
@@ -12,36 +14,48 @@ class Dictogram:
         self.tokens = sum(self.dictionary_histogram.values())
         self.types = self.unique_words()
 
-    def build_dictogram(self):
+    def build_dictogram(self): #REQUIRED
         '''Creates a histogram dictionary using the word_list property and returns it'''
+        dictionary_histogram = {}
+        for word in self.word_list:
+            if word in dictionary_histogram:
+                dictionary_histogram[word] += 1
+            else:
+                dictionary_histogram[word] = 1
 
-        #TODO: use your histogram function as a starting point to complete this method
-        pass
+        return(dictionary_histogram)
 
-    def frequency(self, word):
+    def frequency(self, word): #REQUIRED
         '''returns the frequency or count of the given word in the dictionary histogram'''
         #TODO: use your frequency function as a starting point to complete this method
-        pass
+        word_count = self.dictionary_histogram.get(word, 0)
+        return word_count
 
-    def unique_words(self):
+    def unique_words(self): #REQUIRED
         '''returns the number of unique words in the dictionary histogram'''
         #TODO: use your unique words function as a starting point to complete this method
-        pass
-
-    def sample(self):
+        return len(self.dictionary_histogram)
+        
+    def sample(self): #REQUIRED
         '''Randomly samples from the dictionary histogram based on the frequency, returns a word'''
-
         #TODO: use your sample function as a starting point to complete this method
-        pass
+        fence = 0
+        dart = randint(0, sum(self.dictionary_histogram.values()) - 1)
+
+        for word, count in self.dictionary_histogram.items():
+            fence += count
+            if fence >= dart:
+                return word
+
 
 def print_dictogram(word_list):
     '''Creates a dictionary based histogram (dictogram) and then prints out its properties and samples from it'''
 
     print()
-    print('Dictionary Histogram:')
+    print('Easy Dictionary Histogram:')
     print('word list: {}'.format(word_list))
     # Create a dictogram and display its contents
-    dictogram = Dictogram(word_list)
+    dictogram = EasyDictogram(word_list)
     print('dictogram: {}'.format(dictogram.dictionary_histogram))
     print('{} tokens, {} types'.format(dictogram.tokens, dictogram.types))
     for word in word_list[-2:]:
@@ -53,10 +67,10 @@ def print_dictogram(word_list):
 def print_dictogram_samples(dictogram):
     '''Compares sampled frequency to observed frequency'''
 
-    print('Dictionary Histogram samples:')
+    print('Easy Dictionary Histogram samples:')
     # Sample the histogram 10,000 times and count frequency of results
     samples_list = [dictogram.sample() for _ in range(10000)]
-    samples_hist = Dictogram(samples_list)
+    samples_hist = EasyDictogram(samples_list)
     print('samples: {}'.format(samples_hist.dictionary_histogram))
     print()
     print('Sampled frequency and error from observed frequency:')
