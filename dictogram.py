@@ -35,7 +35,7 @@ class EasyDictogram(dict):
         '''returns the number of unique words in the dictionary histogram'''
         #TODO: use your unique words function as a starting point to complete this method
         return len(self.dictionary_histogram)
-        
+
     def sample(self): #REQUIRED
         '''Randomly samples from the dictionary histogram based on the frequency, returns a word'''
         #TODO: use your sample function as a starting point to complete this method
