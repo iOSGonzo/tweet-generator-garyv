@@ -1,11 +1,13 @@
-from dictogram import EasyDictogram
-from random import randrange
+from dictogram import Dictogram
 
 class MarkovChain:
 
     def __init__(self, word_list):
 
 
+        #The Markov chain will be a dictionary of dictionaries
+        #Example: for "one fish two fish red fish blue fish"
+        #{"one": {fish:1}, "fish": {"two":1, "red":1, "blue":1}, "two": {"fish":1}, "red": {"fish":1}, "blue": {"fish:1"}}
          self.markov_chain = self.build_markov(word_list)
          self.first_word = list(self.markov_chain.keys())[0]
 
@@ -28,17 +30,10 @@ class MarkovChain:
         return markov_chain
 
     def walk(self, num_words):
-        sentence = []
+        #TODO: generate a sentence num_words long using the markov chain
+        for i in num_words:
 
-        word = list(self.markov_chain.keys())[randrange(len(self.markov_chain))]
-        sentence.append(word)
-
-        while len(sentence) < num_words:
-            word = self.markov_chain[word].sample()
-            sentence.append(word)
-
-        return ' '.join(sentence)
-
+        pass
 
     def print_chain(self):
         for word, histogram in self.markov_chain.items():
@@ -46,7 +41,6 @@ class MarkovChain:
 
 
 
-
-# markov_chain = MarkovChain(["one", "fish", "two", "fish", "red", "fish", "blue", "fish"])
-# markov_chain.print_chain()
-# print(markov_chain.walk(10))
+markov_chain = MarkovChain(["one", "fish", "two", "fish", "red", "fish", "blue", "fish"])
+markov_chain.print_chain()
+print(markov_chain.walk(10))

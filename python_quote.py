@@ -1,4 +1,7 @@
 import random
+from random import randint
+from sample import sample
+from color import colors
 
 quotes = ("It's just a flesh wound.",
           "He's not the Messiah. He's a very naughty boy!",
@@ -13,10 +16,6 @@ if __name__ == '__main__':
     print(quote)
 
 
-
-from random import randint
-from sample import sample
-from color import colors
 
 #TODO: 1. Write the generate_words function here
 def generate_words(histogram, num_words):

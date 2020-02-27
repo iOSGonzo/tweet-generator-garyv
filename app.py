@@ -15,12 +15,6 @@ def hello():
     chain = MarkovChain(text)
     sentence = chain.walk(20) + '.'
     return sentence
-    # sentence = ""
-    # iterations = request.args.get('iterations')
-    # for i in range(0, int(iterations)):
-    #     word = sample(hs)
-    #     sentence += word + ""
-    # return sentence
 
 
 if __name__ == '__main__':

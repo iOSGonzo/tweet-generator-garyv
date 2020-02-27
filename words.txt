@@ -1,14 +1,1 @@
-cat
-cat
-cat
-dog
-purple
-flower
-dog
-flower
-sunset
-sunset
-dog
-sunny
-blue
-red
+word word lol zebra another zebra 
