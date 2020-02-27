@@ -57,11 +57,33 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes and count one for each
 
+        count = 0
+        current = self.head
+
+
+        if self.is_empty():
+            return 0
+        else:
+            while current is not None:
+                count += 1
+                current = current.next
+            return count
+
+
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Append node after tail, if it exists
+        node = Node(item)
+
+        current = self.head
+
+        newTail = self.tail.next
+        newTail = node
+
+
+
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
