@@ -75,13 +75,14 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Append node after tail, if it exists
-        node = Node(item)
+        newNode = Node(item)
 
-        current = self.head
-
-        newTail = self.tail.next
-        newTail = node
-
+        if self.is_empty():
+            self.head = newNode
+            self.tail = newNode
+        else:
+            self.tail.next = newNode
+            self.tail = newNode
 
 
 
