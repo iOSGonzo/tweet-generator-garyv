@@ -92,9 +92,9 @@ def sample(histogram):
 
 
 
-hs = histogram("words.txt")
-print(hs)
-print(sample(hs))
+# hs = histogram("words.txt")
+# print(hs)
+# print(sample(hs))
 # print(histogram("words.txt"))
 # print(unique_words(word_histogram))
 # print(frequency("sunset",word_histogram))

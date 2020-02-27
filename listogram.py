@@ -17,16 +17,11 @@ class Listogram:
 
         #TODO: use your listogram function as a starting point to complete this method
         listogram = []
-        for word in list_histogram:
-            is_updated = False
-            for list in listogram:
-                if list[0] == word:
-                    list[1] += 1
-                    is_updated = True
-            if is_updated == False:
-                listogram.append([word,1])
-        return histogram
-        pass
+        for word in self.word_list:
+            if [word, self.word_list.count(word)] not in listogram:
+                listogram.append([word, self.word_list.count(word)])
+        return listogram
+
 
     def get_num_tokens(self):
         '''gets the number of tokens in the listogram'''
@@ -51,12 +46,10 @@ class Listogram:
         '''returns the frequency or count of the given word in the list of lists histogram'''
         #TODO: use your frequency and get_index function as a starting point to complete this method
         #You will need to adapt it a little bit to work with listogram
-        if word not in self:
-            return 0
-        else:
-            index = self.get_index(word)
-            return self[index][1]
-        pass
+        for words in self.list_histogram:
+            if words[0] == word:
+                return words[1]
+        return 0
 
     def unique_words(self):
         '''returns the number of unique words in the list of lists histogram'''
@@ -69,9 +62,9 @@ class Listogram:
     def sample(self):
         '''Randomly samples from the list of list histogram based on the frequency, returns a word'''
         fence = 0
-        dart = randint(0, sum(self.list_histogram.values()) - 1)
+        dart = randint(0, len(self.list_histogram) - 1)
 
-        for word, count in self.list_histogram.items():
+        for word, count in self.list_histogram:
             fence += count
             if fence >= dart:
                 return word

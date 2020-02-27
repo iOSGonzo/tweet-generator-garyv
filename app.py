@@ -10,11 +10,10 @@ app = Flask(__name__)
 @app.route('/')
 
 def hello():
-    file = open('./words.txt')
-    text = file.read().split()
-    chain = MarkovChain(text)
-    sentence = chain.walk(20) + '.'
-    return sentence
+
+    hs = histogram("words.txt")
+    samp = sample(hs)
+    return samp
 
 
 if __name__ == '__main__':
