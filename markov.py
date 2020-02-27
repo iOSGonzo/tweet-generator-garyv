@@ -1,4 +1,4 @@
-from dictogram import Dictogram
+from dictogram import EasyDictogram
 from random import randrange
 
 class MarkovChain:
@@ -23,7 +23,7 @@ class MarkovChain:
                 #add to count
                 histogram.dictionary_histogram[next_word] = histogram.dictionary_histogram.get(next_word, 0) + 1
             else: #first entry
-                markov_chain[current_word] = Dictogram([next_word])
+                markov_chain[current_word] = EasyDictogram([next_word])
 
         return markov_chain
 
