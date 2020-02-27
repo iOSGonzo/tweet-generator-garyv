@@ -91,6 +91,16 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Prepend node before head, if it exists
+        newNode = Node(item)
+
+        if self.is_empty():
+            self.head = newNode
+            self.tail = newNode
+        else:
+            pointer = newNode.next
+            self.head = pointer
+            self.head = newNode
+
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
