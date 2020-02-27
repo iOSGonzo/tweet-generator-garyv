@@ -1,4 +1,5 @@
-from dictogram import Dictogram
+from dictogram import EasyDictogram
+from random import randrange
 
 class MarkovChain:
 
