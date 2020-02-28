@@ -108,6 +108,17 @@ class LinkedList(object):
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
+        current = self.head
+
+        if self.is_empty():
+            return False
+
+        while current is not None:
+            if quality(current.data) == True:
+                return current.data
+            else:
+                current = current.next
+
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
