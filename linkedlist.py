@@ -55,7 +55,9 @@ class LinkedList(object):
     def length(self):
         """Return the length of this linked list by traversing its nodes.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all nodes and count one for each
+
+        #BEST CASE: 0(1) - Number of operations is always constant
+        #WORST CASE: 0(1)
 
         count = 0
         current = self.head
@@ -75,6 +77,10 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Append node after tail, if it exists
+
+        #BEST CASE: 0(1) - Because we always know its going to be at the tail
+        #WORST CASE: 0(1)
+
         newNode = Node(item)
 
         if self.is_empty():
@@ -110,7 +116,7 @@ class LinkedList(object):
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
 
-        #BEST CASE: 0(1) - When the node we're looking for is the head node
+        #BEST CASE: 0(1) - When the node we're looking for is the head node, we only iterate once
         #WORST CASE: 0(n) - When the node we're looking for is anything after the head node
 
         current = self.head
@@ -130,8 +136,8 @@ class LinkedList(object):
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
 
-        #BEST CASE: 0(1) - When the node we're looking for is the head node
-        #WORST CASE: 0(n) - When the node we're looking for is anything after the head node
+        #BEST CASE: 0(1) - When the node we're trying to delete is the head node
+        #WORST CASE: 0(n) - When the node we're trying to delete is anything after the head node
 
         #checks if ll is empty
         if self.is_empty():
