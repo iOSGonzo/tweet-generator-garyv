@@ -27,7 +27,7 @@ def hello():
     # return samp
     # num_words = 10
 
-    return(markovchain.walk(10))
+    return(markovchain.walk(20))
 
 if __name__ == '__main__':
     app.run()
